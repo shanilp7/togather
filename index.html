@@ -9,7 +9,7 @@
 
     <a-scene embedded arjs="sourceType: webcam;
                             patternRatio: 0.5;
-                debugUIEnabled: false; 
+                debugUIEnabled: true; 
                 " vr-mode-ui="enabled: false">
 
         <a-assets>
@@ -18,15 +18,13 @@
         </a-assets>
 
 
-
-
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_1.patt">
-            <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
-        </a-marker>
         <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_2.patt">
             <a-entity gltf-model="#star" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_1.patt">
+            <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
+        </a-marker>
 
 
 
@@ -36,13 +34,12 @@
 
 
 
-        <!--
 
         <a-marker preset="hiro">
-                                    <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>
-            <a-entity gltf-model="#trophy" scale="0.1 0.1 0.1 "></a-entity>
+            <!--                                    <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>-->
+            <a-entity gltf-model="#star" scale="0.1 0.1 0.1 "></a-entity>
         </a-marker>
--->
+
 
 
         <a-entity camera></a-entity>
