@@ -13,13 +13,19 @@
                 " vr-mode-ui="enabled: false">
 
         <a-assets>
-            <a-asset-item id="star" src="Assets/startest2.gltf"></a-asset-item>
+            <a-asset-item id="star" src="Assets/star.glb"></a-asset-item>
+            <a-asset-item id="trophy" src="Assets/trophy.glb"></a-asset-item>
         </a-assets>
 
         <a-marker preset="hiro">
             <!--            <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>-->
             <a-entity gltf-model="#star" scale="0.01 0.01 0.01"></a-entity>
         </a-marker>
+
+        <a-marker preset="custom" url="/Markers/trophy_marker">
+            <a-entity gltf-model="#star" scale="0.01 0.01 0.01"></a-entity>
+        </a-marker>
+
         <a-entity camera></a-entity>
     </a-scene>
 </body>
