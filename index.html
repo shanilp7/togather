@@ -43,7 +43,7 @@
         <a-marker type="barcode" value="4" id="#marker4">
             <a-entity gltf-model="#house" scale="0.10 0.10 0.10" rotation="0 180"></a-entity>
             <a-entity position="0 1 1" scale="2 2 2" text="value: And now that very stardust forms the walls of this home;color:black;"></a-entity>
-            <a-entity id="finalModel" gltf-model="#final" scale="0.5 0.5 0.5" rotation="0 90 0" position="0 0 0.5" visible="false"></a-entity>
+            <a-entity id="finalModel" gltf-model="#final" scale="0.5 0.5 0.5" rotation="0 90 0" position="0 0 -0.5" visible="false"></a-entity>
         </a-marker>
 
 
@@ -68,6 +68,12 @@
         addListenerTo(document.getElementById("#marker2"));
         addListenerTo(document.getElementById("#marker3"));
         addListenerTo(document.getElementById("#marker4"));
+        var star = document.getElementById("#star");
+        var finalStory = document.getElementById("#basketball");
+        var finalStory = document.getElementById("#trophy");
+        var finalStory = document.getElementById("#house");
+        var finalStory = document.getElementById("finalModel");
+
 
         function addListenerTo(m) {
             m.addEventListener("markerFound", (e) => {
@@ -91,12 +97,19 @@
 
         function checkmarkercount() {
             if (markercount == 4) {
-                var finalStory = document.getElementById("finalModel");
                 finalStory.setAttribute('visible', 'true');
+                star.setAttribute('visible', 'false');
+                basketball.setAttribute('visible', 'false');
+                trophy.setAttribute('visible', 'false');
+                jouse.setAttribute('visible', 'false');
                 console.log("All 4 Markers Found!")
             } else {
-                var finalStory = document.getElementById("finalModel");
                 finalStory.setAttribute('visible', 'false');
+                star.setAttribute('visible', 'true');
+                basketball.setAttribute('visible', 'true');
+                trophy.setAttribute('visible', 'true');
+                jouse.setAttribute('visible', 'true');
+
             }
         }
 
