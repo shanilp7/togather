@@ -3,6 +3,9 @@
 <head>
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+
+
+
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -41,6 +44,8 @@
             <a-entity gltf-model="#house" scale="0.10 0.10 0.10"></a-entity>
             <a-entity position="0 1 1" scale="2 2 2" text="value: And now that very stardust forms the walls of this home;color:black;"></a-entity>
         </a-marker>
+
+        <a-entity id="finalModel" gltf-model="#final" scale="1 1 1" visible="false"></a-entity>
 
 
         <!--
@@ -85,7 +90,12 @@
 
         function checkmarkercount() {
             if (markercount == 4) {
+                var finalStory = document.getElementById("finalModel");
+                finalStory.setAttribute('visible', 'true');
                 console.log("All 4 Markers Found!")
+            } else {
+                var finalStory = document.getElementById("finalModel");
+                finalStory.setAttribute('visible', 'false');
             }
         }
 
