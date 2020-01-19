@@ -7,10 +7,15 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
+    <!--
     <a-scene embedded arjs="sourceType: webcam;
                             patternRatio: 0.9;
                 debugUIEnabled: true; 
+                arSetPatternDetectionMode(<#ARHandle handle#>, AR_MATRIX_CODE_DETECTION);
                 " vr-mode-ui="enabled: false">
+-->
+
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' vr-mode-ui="enabled: false">
 
         <a-assets>
             <a-asset-item id="star" src="Assets/star.glb"></a-asset-item>
@@ -24,23 +29,23 @@
 
 
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_1.patt">
+        <a-marker type="barcode" value="1">
             <a-entity gltf-model="#star" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_2.patt">
+        <a-marker type="barcode" value="2">
             <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_3.patt">
+        <a-marker type="barcode" value="3">
             <a-entity gltf-model="#house" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_4.patt">
+        <a-marker type="barcode" value="4">
             <a-entity gltf-model="#degree" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_5.patt">
+        <a-marker type="barcode" value="5">
             <a-entity gltf-model="#basketball" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
@@ -59,10 +64,12 @@
 
 
 
+        <!--
         <a-marker preset="hiro">
-            <!--            <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>-->
+                        <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>
             <a-entity gltf-model="#house" scale="0.1 0.1 0.1 "></a-entity>
         </a-marker>
+-->
 
 
 

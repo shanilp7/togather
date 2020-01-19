@@ -8,22 +8,41 @@
 <body style='margin : 0px; overflow: hidden;'>
 
     <a-scene embedded arjs="sourceType: webcam;
-                            patternRatio: 0.5;
+                            patternRatio: 0.9;
                 debugUIEnabled: true; 
                 " vr-mode-ui="enabled: false">
 
         <a-assets>
+            <a-asset-item id="star" src="Assets/star.glb"></a-asset-item>
+            <a-asset-item id="trophy" src="Assets/trophy.glb"></a-asset-item>
+            <a-asset-item id="house" src="Assets/house.glb"></a-asset-item>
+            <a-asset-item id="degree" src="Assets/fakedegree.glb"></a-asset-item>
+            <a-asset-item id="basketball" src="Assets/basketball.glb"></a-asset-item>
             <a-asset-item id="final" src="Assets/finalmodel.glb"></a-asset-item>
         </a-assets>
 
 
 
 
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern-Combined.patt">
-            <a-entity gltf-model="#final" scale="0.010 0.010 0.010"></a-entity>
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_1.patt">
+            <a-entity gltf-model="#star" scale="0.10 0.10 0.10"></a-entity>
         </a-marker>
 
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_2.patt">
+            <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
+        </a-marker>
 
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_3.patt">
+            <a-entity gltf-model="#house" scale="0.10 0.10 0.10"></a-entity>
+        </a-marker>
+
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_4.patt">
+            <a-entity gltf-model="#degree" scale="0.10 0.10 0.10"></a-entity>
+        </a-marker>
+
+        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_5.patt">
+            <a-entity gltf-model="#basketball" scale="0.10 0.10 0.10"></a-entity>
+        </a-marker>
 
         <!--
         <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_2.patt">
@@ -39,13 +58,12 @@
 
 
 
-        <!--
 
         <a-marker preset="hiro">
-                                                <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>
+            <!--            <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>-->
             <a-entity gltf-model="#house" scale="0.1 0.1 0.1 "></a-entity>
         </a-marker>
--->
+
 
 
 
