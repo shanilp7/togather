@@ -1,73 +1,51 @@
 <html>
 
 <head>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
 
-    <!--
-    <a-scene embedded arjs="sourceType: webcam;
-                            patternRatio: 0.9;
-                debugUIEnabled: true; 
-                arSetPatternDetectionMode(<#ARHandle handle#>, AR_MATRIX_CODE_DETECTION);
-                " vr-mode-ui="enabled: false">
--->
 
-    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;' vr-mode-ui="enabled: false">
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; trackingMethod: best;' vr-mode-ui="enabled: false" log="Hello Scene">
+
 
         <a-assets>
             <a-asset-item id="star" src="Assets/star.glb"></a-asset-item>
             <a-asset-item id="trophy" src="Assets/trophy.glb"></a-asset-item>
             <a-asset-item id="house" src="Assets/house.glb"></a-asset-item>
-            <a-asset-item id="degree" src="Assets/fakedegree.glb"></a-asset-item>
-            <!--            <a-asset-item id="basketball" src="Assets/basketball.glb"></a-asset-item>-->
+            <a-asset-item id="basketball" src="Assets/basketball.glb"></a-asset-item>
             <a-asset-item id="final" src="Assets/finalmodel.glb"></a-asset-item>
         </a-assets>
 
 
 
 
-        <a-marker type="barcode" value="1">
-            <a-entity gltf-model="#star" scale="0.10 0.10 0.10"></a-entity>
+        <a-marker type="barcode" value="1" id="#marker1">
+            <a-entity gltf-model="#star" scale="0.10 0.10 0.10" rotate="0 0 -90" log="helloStar"></a-entity>
+            <a-entity position="0 1 1" scale="2 2 2" text="value: A small blip shoved up into the cosmos and suspended in a vacuum of my own doing;color:black;"></a-entity>
         </a-marker>
 
-        <a-marker type="barcode" value="2">
-            <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
-        </a-marker>
-
-        <a-marker type="barcode" value="3">
-            <a-entity gltf-model="#house" scale="0.10 0.10 0.10"></a-entity>
-        </a-marker>
-
-        <a-marker type="barcode" value="4">
-            <a-entity gltf-model="#degree" scale="0.10 0.10 0.10"></a-entity>
-        </a-marker>
-
-        <a-marker type="barcode" value="5">
+        <a-marker type="barcode" value="2" id="#marker2">
             <a-entity gltf-model="#basketball" scale="0.10 0.10 0.10"></a-entity>
+            <a-entity position="0 1 1" scale="2 2 2" text="value: Rowdy and ruddy, we were a tempestuous churning of bright futures and free time;color:black;"></a-entity>
         </a-marker>
 
-        <!--
-        <a-marker preset="custom" type="pattern" url="https://shanilp7.github.io/togather/Markers/pattern_2.patt">
-            <a-entity gltf-model="#final" scale="0.10 0.10 0.10"></a-entity>
+        <a-marker type="barcode" value="3" id="#marker3">
+            <a-entity gltf-model="#trophy" scale="0.10 0.10 0.10"></a-entity>
+            <a-entity position="0 1 1" scale="2 2 2" text="value: We breathlessly chased our own demise -every merit meant magnitude and every promotion was a privilege ;color:black;"></a-entity>
         </a-marker>
--->
 
-
-
-
-
-
-
-
+        <a-marker type="barcode" value="4" id="#marker4">
+            <a-entity gltf-model="#house" scale="0.10 0.10 0.10"></a-entity>
+            <a-entity position="0 1 1" scale="2 2 2" text="value: And now that very stardust forms the walls of this home;color:black;"></a-entity>
+        </a-marker>
 
 
         <!--
-        <a-marker preset="hiro">
-                        <a-entity obj-model="obj:#star;" scale="0.01 0.01 0.01"></a-entity>
-            <a-entity gltf-model="#house" scale="0.1 0.1 0.1 "></a-entity>
+        <a-marker preset='hiro'>
+            <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
         </a-marker>
 -->
 
@@ -76,6 +54,42 @@
 
         <a-entity camera></a-entity>
     </a-scene>
+
+    <script>
+        var markercount = 0;
+
+        addListenerTo(document.getElementById("#marker1"));
+        addListenerTo(document.getElementById("#marker2"));
+        addListenerTo(document.getElementById("#marker3"));
+        addListenerTo(document.getElementById("#marker4"));
+
+        function addListenerTo(m) {
+            m.addEventListener("markerFound", (e) => {
+                console.log("found")
+                updateMarker(1);
+            })
+
+            m.addEventListener("markerLost", (e) => {
+                console.log("lost")
+                updateMarker(-1);
+            })
+        }
+
+
+        function updateMarker(addby) {
+            markercount += addby;
+            console.log("markercount at:" + markercount);
+            checkmarkercount();
+
+        }
+
+        function checkmarkercount() {
+            if (markercount == 4) {
+                console.log("All 4 Markers Found!")
+            }
+        }
+
+    </script>
 </body>
 
 </html>
