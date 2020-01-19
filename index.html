@@ -44,7 +44,7 @@
             <a-entity gltf-model="#house" scale="0.10 0.10 0.10" rotation="0 180"></a-entity>
             <a-entity position="0 1 1" scale="2 2 2" text="value: And now that very stardust forms the walls of this home;color:black;"></a-entity>
 
-            <a-entity id="finalModel" gltf-model="#final" scale="0.3 0.3 0.3" rotation="0 90 0" position="0 2 0" visible="false"></a-entity>
+            <a-entity id="finalModel" gltf-model="#final" scale="0.3 0.3 0.3" rotation="0 90 0" position="-1 2 0" visible="false"></a-entity>
         </a-marker>
 
 
@@ -93,7 +93,7 @@
         }
 
         function checkmarkercount() {
-            if (markercount == 1) {
+            if (markercount == 4) {
                 finalStory.setAttribute('visible', 'true');
 
                 console.log("All 4 Markers Found!")
